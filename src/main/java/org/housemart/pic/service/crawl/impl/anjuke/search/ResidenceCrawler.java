@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.housemart.pic.model.anjuke.Properties;
 import org.housemart.pic.service.crawl.core.Crawler;
 import org.springframework.util.CollectionUtils;
 import org.webharvest.runtime.variables.ListVariable;
@@ -18,8 +19,9 @@ public class ResidenceCrawler extends Crawler {
 		super(configPath, workDir);
 	}
 
-	public String crawl(String url) {
+	public Properties crawl(String url) throws Exception {
 		String jsonResult = null;
+		Properties properties = null;
 
 		List<ListVariable> residences = new ArrayList<ListVariable>();
 		scraper.getContext().put("url", url);
@@ -29,8 +31,9 @@ public class ResidenceCrawler extends Crawler {
 
 		if (!CollectionUtils.isEmpty(residences)) {
 			jsonResult = StringEscapeUtils.unescapeJava(residences.get(0).toString().trim());
+			properties = om.readValue(jsonResult, Properties.class);
 		}
 
-		return jsonResult;
+		return properties;
 	}
 }

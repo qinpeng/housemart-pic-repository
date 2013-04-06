@@ -14,6 +14,6 @@ public class ResidenceSearcherTest {
 	public void searchTest() throws Exception {
 		ResidenceCrawler crawler = new ResidenceCrawler(
 				"org/housemart/pic/service/crawl/impl/anjuke/search/ResidenceCrawler.xml", "c:/data");
-		System.out.println(searcher.search(crawler, 11, "文化馨苑", 15, 1));
+		System.out.println(searcher.search(crawler, 11, "东盛公寓", 15, 1));
 	}
 }

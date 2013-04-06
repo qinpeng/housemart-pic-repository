@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.housemart.pic.model.anjuke.Properties;
+import org.housemart.pic.model.anjuke.Property;
 import org.housemart.pic.service.crawl.impl.anjuke.crack.DecryptSig;
 import org.housemart.pic.utils.RequestUtils;
 
@@ -16,11 +18,14 @@ public class ResidenceSearcherImpl implements ResidenceSearcher {
 	protected static String searchURLPattern = "http://api.anjuke.com/mobile/1.3/property.searchV3?i=357853047832754&m=Android-GT-I9001&o=GT-I9001-user+2.3.3+GINGERBREAD+ZSKI1+release-keys&v=2.3.3&cv=3.2.1&app=a-anjuke&pm=b23&cid=11&api_key=eb8cd4ef60fde7580260cf9cf4250a24&map_type=baidu&uuid=357853047832754&city_id={0}&q={1}&page_size={2}&page={3}";
 
 	@Override
-	public List<String> search(ResidenceCrawler crawler, int city, String name, int pageSize, int page) throws Exception {
+	public List<Property> search(ResidenceCrawler crawler, int city, String name, int pageSize, int page)
+			throws Exception {
 
-		List<String> ret = new ArrayList<String>();
+		List<Property> ret = new ArrayList<Property>();
 		String url = generateURL(11, name, 15, 1);
-		ret.add(crawler.crawl(url));
+		Properties properties = crawler.crawl(url);
+		if (properties != null)
+			ret = properties.getProperties();
 
 		return ret;
 
