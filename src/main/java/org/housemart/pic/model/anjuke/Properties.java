@@ -3,6 +3,7 @@ package org.housemart.pic.model.anjuke;
 import java.util.List;
 
 public class Properties {
+
 	private List<Property> properties;
 	private String total;
 	private String status;
@@ -34,4 +35,5 @@ public class Properties {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
 }

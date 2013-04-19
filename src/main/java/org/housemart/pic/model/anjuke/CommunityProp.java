@@ -5,6 +5,7 @@
 package org.housemart.pic.model.anjuke;
 
 public class CommunityProp {
+
 	private String address;
 	private String block_name;
 	private String id;
@@ -61,4 +62,5 @@ public class CommunityProp {
 				+ ", address=" + this.address + ", price=" + this.price + ", lat=" + this.lat + ", lng=" + this.lng
 				+ "]";
 	}
+
 }

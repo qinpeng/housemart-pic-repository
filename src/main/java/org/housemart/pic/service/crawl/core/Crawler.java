@@ -12,11 +12,13 @@ import org.webharvest.runtime.Scraper;
 import org.xml.sax.InputSource;
 
 public abstract class Crawler {
+
 	protected final Log log = LogFactory.getLog(this.getClass());
 	protected ScraperConfiguration config;
 	protected String workDir;
 	protected Scraper scraper;
-	protected ObjectMapper om; 
+	protected ObjectMapper om;
+
 	public Crawler(String configPath, String workDir) {
 		this.config = new ScraperConfiguration(new InputSource(Crawler.class.getClassLoader().getResourceAsStream(
 				configPath)));

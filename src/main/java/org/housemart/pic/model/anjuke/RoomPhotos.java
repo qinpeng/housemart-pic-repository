@@ -5,8 +5,10 @@
 package org.housemart.pic.model.anjuke;
 
 public class RoomPhotos {
+
 	private String desc;
 	private String url;
+
 	public String getDesc() {
 		return desc;
 	}

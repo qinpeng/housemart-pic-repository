@@ -11,10 +11,10 @@ import org.housemart.pic.model.anjuke.Property;
 import org.housemart.pic.service.crawl.impl.anjuke.AnJuKeConstants;
 import org.junit.Test;
 
-public class ResidenceSearcherTest {
+public class HouseListSearcherTest {
 
-	ResidenceSearcher searcher = new ResidenceSearcherImpl();
-	ResidenceCrawler crawler = new ResidenceCrawler(
+	_IListSearcherable searcher = new HouseListSearcher();
+	HouseListCrawler crawler = new HouseListCrawler(
 			"org/housemart/pic/service/crawl/impl/anjuke/search/ResidenceCrawler.xml", "c:/data");
 
 	@Test

@@ -15,11 +15,11 @@ import org.housemart.pic.service.crawl.impl.anjuke.AnJuKeConstants;
 import org.housemart.pic.service.crawl.impl.anjuke.crack.DecryptSig;
 import org.housemart.pic.utils.RequestUtils;
 
-public class ResidenceSearcherImpl implements ResidenceSearcher {
+public class HouseListSearcher implements _IListSearcherable {
 	protected static String searchURLPattern = "http://api.anjuke.com/mobile/1.3/property.searchV3?i=357853047832754&m=Android-GT-I9001&o=GT-I9001-user+2.3.3+GINGERBREAD+ZSKI1+release-keys&v=2.3.3&cv=3.2.1&app=a-anjuke&pm=b23&cid=11&api_key=eb8cd4ef60fde7580260cf9cf4250a24&map_type=baidu&uuid=357853047832754&city_id={0}&q={1}&page_size={2}&page={3}";
 
 	@Override
-	public Properties search(ResidenceCrawler crawler, int city, String name, int pageSize, int page) throws Exception {
+	public Properties search(_ICrawlable crawler, int city, String name, int pageSize, int page) throws Exception {
 
 		String url = generateURL(city, name, pageSize, page);
 		return crawler.crawl(url);
@@ -27,7 +27,7 @@ public class ResidenceSearcherImpl implements ResidenceSearcher {
 	}
 
 	@Override
-	public String searchReturnResult(ResidenceCrawler crawler, int city, String name, int pageSize, int page)
+	public String searchReturnResult(_ICrawlable crawler, int city, String name, int pageSize, int page)
 			throws Exception {
 
 		String url = generateURL(city, name, pageSize, page);
@@ -36,7 +36,7 @@ public class ResidenceSearcherImpl implements ResidenceSearcher {
 	}
 
 	@Override
-	public List<Property> search(ResidenceCrawler crawler, int city, String name) throws Exception {
+	public List<Property> search(_ICrawlable crawler, int city, String name) throws Exception {
 
 		List<Property> result = null;
 

@@ -24,12 +24,25 @@ public class DecryptSig {
 	 */
 	public static Map<String, String> obtainSignificativeParam(Map<String, String> param) {
 		Map<String, String> ret = new HashMap<String, String>();
-		ret.put("city_id", param.get("city_id"));
-		ret.put("uuid", param.get("uuid"));
-		ret.put("q", param.get("q"));
-		ret.put("page", param.get("page"));
-		ret.put("page_size", param.get("page_size"));
-		ret.put("map_type", param.get("map_type"));
+		// for house list
+		if (param.get("city_id") != null)
+			ret.put("city_id", param.get("city_id"));
+		if (param.get("uuid") != null)
+			ret.put("uuid", param.get("uuid"));
+		if (param.get("q") != null)
+			ret.put("q", param.get("q"));
+		if (param.get("page") != null)
+			ret.put("page", param.get("page"));
+		if (param.get("page_size") != null)
+			ret.put("page_size", param.get("page_size"));
+		if (param.get("map_type") != null)
+			ret.put("map_type", param.get("map_type"));
+
+		// for resicence detail
+		if (param.get("maptype") != null)
+			ret.put("maptype", param.get("maptype"));
+		if (param.get("id") != null)
+			ret.put("id", param.get("id"));
 		return ret;
 	}
 

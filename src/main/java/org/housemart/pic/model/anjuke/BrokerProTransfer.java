@@ -5,6 +5,7 @@
 package org.housemart.pic.model.anjuke;
 
 public class BrokerProTransfer {
+
 	private String phone;
 	private String service;
 

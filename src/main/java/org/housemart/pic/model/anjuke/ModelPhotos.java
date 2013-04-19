@@ -5,6 +5,7 @@
 package org.housemart.pic.model.anjuke;
 
 public class ModelPhotos {
+
 	private String desc;
 	private String url;
 
@@ -23,4 +24,5 @@ public class ModelPhotos {
 	public String toString() {
 		return "ModelPhotos [desc=" + this.desc + ", url=" + this.url + "]";
 	}
+
 }
