@@ -19,7 +19,7 @@
 		</list>
 
 		<body>
-			<var-def name="residenceJson">
+			<var-def name="json">
 				<xquery>
 					<xq-param name="item">
 						<var name="item" />
@@ -27,15 +27,15 @@
 					<xq-expression>  
                   <![CDATA[ 
                   	declare variable $item as node() external;
-                    let $residence := data($item) 
+                    let $json := data($item) 
                     return 
-                    	$residence 
+                    	$json 
                     ]]>
 					</xq-expression>
 				</xquery>
 			</var-def>
 			<template>
-				${residences.add(residenceJson)};
+				${jsonData.add(json)};
 			</template>
 
 		</body>

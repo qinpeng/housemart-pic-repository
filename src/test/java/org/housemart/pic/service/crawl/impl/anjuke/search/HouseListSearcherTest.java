@@ -13,9 +13,8 @@ import org.junit.Test;
 
 public class HouseListSearcherTest {
 
-	_IListSearcherable searcher = new HouseListSearcher();
-	HouseListCrawler crawler = new HouseListCrawler(
-			"org/housemart/pic/service/crawl/impl/anjuke/search/ResidenceCrawler.xml", "c:/data");
+	_IListSearcherable<Properties, Property> searcher = new HouseListSearcher();
+	HouseListCrawler crawler = new HouseListCrawler("org/housemart/pic/service/crawl/core/JsonData.xml", "c:/data");
 
 	@Test
 	public void searchTest() throws Exception {

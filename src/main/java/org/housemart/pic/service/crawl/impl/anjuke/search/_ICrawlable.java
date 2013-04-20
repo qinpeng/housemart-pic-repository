@@ -4,11 +4,10 @@
  */
 package org.housemart.pic.service.crawl.impl.anjuke.search;
 
-import org.housemart.pic.model.anjuke.Properties;
 
-public interface _ICrawlable {
+public interface _ICrawlable<T> {
 
-	Properties crawl(String url) throws Exception;
+	T crawl(String url) throws Exception;
 
 	String crawlReturnJson(String url) throws Exception;
 }
