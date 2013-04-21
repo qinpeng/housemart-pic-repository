@@ -8,12 +8,10 @@ import java.util.List;
 
 public interface _IListSearcherable<EntitiesWrapper, Entity> {
 
-	EntitiesWrapper search(_ICrawlable<EntitiesWrapper> crawler, int city, String name, int pageSize, int page)
-			throws Exception;
+	EntitiesWrapper search(int city, String name, int pageSize, int page) throws Exception;
 
-	String searchJsonResult(_ICrawlable<EntitiesWrapper> crawler, int city, String name, int pageSize, int page)
-			throws Exception;
+	String searchJsonResult(int city, String name, int pageSize, int page) throws Exception;
 
-	List<Entity> search(_ICrawlable<EntitiesWrapper> crawler, int city, String name) throws Exception;
+	List<Entity> search(int city, String name) throws Exception;
 
 }

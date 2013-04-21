@@ -14,35 +14,36 @@ import org.housemart.pic.model.anjuke.Property;
 import org.housemart.pic.service.crawl.impl.anjuke.AnJuKeConstants;
 import org.housemart.pic.service.crawl.impl.anjuke.crack.DecryptSig;
 import org.housemart.pic.utils.RequestUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class HouseListSearcher implements _IListSearcherable<Properties, Property> {
 	protected static String searchURLPattern = "http://api.anjuke.com/mobile/1.3/property.searchV3?i=357853047832754&m=Android-GT-I9001&o=GT-I9001-user+2.3.3+GINGERBREAD+ZSKI1+release-keys&v=2.3.3&cv=3.2.1&app=a-anjuke&pm=b23&cid=11&api_key=eb8cd4ef60fde7580260cf9cf4250a24&map_type=baidu&uuid=357853047832754&city_id={0}&q={1}&page_size={2}&page={3}";
+	@Autowired
+	protected _ICrawlable<Properties> houseListCrawler;
 
 	@Override
-	public Properties search(_ICrawlable<Properties> crawler, int city, String name, int pageSize, int page)
-			throws Exception {
+	public Properties search(int city, String name, int pageSize, int page) throws Exception {
 
 		String url = generateURL(city, name, pageSize, page);
-		return crawler.crawl(url);
+		return houseListCrawler.crawl(url);
 
 	}
 
 	@Override
-	public String searchJsonResult(_ICrawlable<Properties> crawler, int city, String name, int pageSize, int page)
-			throws Exception {
+	public String searchJsonResult(int city, String name, int pageSize, int page) throws Exception {
 
 		String url = generateURL(city, name, pageSize, page);
-		return crawler.crawlReturnJson(url);
+		return houseListCrawler.crawlReturnJson(url);
 
 	}
 
 	@Override
-	public List<Property> search(_ICrawlable<Properties> crawler, int city, String name) throws Exception {
+	public List<Property> search(int city, String name) throws Exception {
 
 		List<Property> result = null;
 
 		String firstPage = generateURL(city, name, AnJuKeConstants.PAGE_SIZE, 1);
-		Properties firstPageResult = crawler.crawl(firstPage);
+		Properties firstPageResult = houseListCrawler.crawl(firstPage);
 		int total = Integer.valueOf(firstPageResult.getTotal());
 
 		if (total > 0) {
@@ -53,7 +54,7 @@ public class HouseListSearcher implements _IListSearcherable<Properties, Propert
 				int pages = total / AnJuKeConstants.PAGE_SIZE + 1;
 				for (int i = 2; i <= pages; i++) {
 					String url = generateURL(city, name, AnJuKeConstants.PAGE_SIZE, i);
-					Properties pageResult = crawler.crawl(url);
+					Properties pageResult = houseListCrawler.crawl(url);
 					result.addAll(pageResult.getProperties());
 				}
 			}
@@ -66,7 +67,8 @@ public class HouseListSearcher implements _IListSearcherable<Properties, Propert
 	public String generateURL(int city, String name, int pageSize, int page) throws Exception {
 
 		String ret = null;
-		String url = MessageFormat.format(searchURLPattern, city, name, pageSize, page);
+		String url = MessageFormat.format(searchURLPattern, String.valueOf(city), name, String.valueOf(pageSize),
+				String.valueOf(page));
 		Map<String, String> param = RequestUtils.URLRequest(url);
 		Map<String, String> significativeParam = DecryptSig.obtainSignificativeParam(param);
 		ret = url + "&sig=" + DecryptSig.generateSig(significativeParam);

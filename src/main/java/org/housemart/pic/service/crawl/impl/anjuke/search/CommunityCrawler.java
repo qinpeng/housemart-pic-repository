@@ -5,28 +5,31 @@
 package org.housemart.pic.service.crawl.impl.anjuke.search;
 
 import org.apache.commons.lang.StringUtils;
+import org.housemart.pic.model.anjuke.CommunityData;
 import org.housemart.pic.model.anjuke.CommunityGet;
 import org.housemart.pic.service.crawl.core.JsonCrawler;
 
-public class ResidenceCrawler extends JsonCrawler implements _ICrawlable<CommunityGet> {
+public class CommunityCrawler extends JsonCrawler implements _ICrawlable<CommunityGet> {
 
-	public ResidenceCrawler(String configPath, String workDir) {
+	public CommunityCrawler(String configPath, String workDir) {
 		super(configPath, workDir);
 	}
 
 	@Override
 	public CommunityGet crawl(String url) throws Exception {
 
-		CommunityGet residence = null;
+		CommunityGet community = null;
 		String jsonResult = null;
 
 		jsonResult = crawlReturnJson(url);
 
 		if (StringUtils.isNotBlank(jsonResult)) {
-			residence = om.readValue(jsonResult, CommunityGet.class);
+			CommunityData data = om.readValue(jsonResult, CommunityData.class);
+			if (data != null)
+				community = data.getCommunity();
 		}
 
-		return residence;
+		return community;
 	}
 
 }

@@ -12,15 +12,21 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 
-	<bean id="propertyConfigurer"
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<value>classpath:biz-data/webKeyValueRes.properties</value>
-			</list>
-		</property>
-		<property name="fileEncoding" value="utf-8" />
+
+	<bean id="communityCrawler" class="org.housemart.pic.service.crawl.impl.anjuke.search.CommunityCrawler">
+		<constructor-arg value="org/housemart/pic/service/crawl/core/JsonData.xml"/> 
+		<constructor-arg value="c:/data"/>
 	</bean>
-
-
+	
+	<bean id="houseListCrawler" class="org.housemart.pic.service.crawl.impl.anjuke.search.HouseListCrawler">
+		<constructor-arg value="org/housemart/pic/service/crawl/core/JsonData.xml"/> 
+		<constructor-arg value="c:/data"/>
+	</bean>
+	
+	<bean id="communitySearcher" class="org.housemart.pic.service.crawl.impl.anjuke.search.CommunitySearcher">
+	</bean>
+	
+	<bean id="houseListSearcher" class="org.housemart.pic.service.crawl.impl.anjuke.search.HouseListSearcher">
+	</bean>
+	
 </beans>  

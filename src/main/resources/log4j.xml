@@ -22,15 +22,23 @@
 		</layout>
 	</appender>
 
+
+	<logger name="org.springframework" additivity="false">
+		<level value="info" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+	</logger>
+	
 	<logger name="org.housemart">
-		<priority value="info" />
+		<priority value="debug" />
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="FILE" />
 	</logger>
 
 	<root>
-		<priority value="debug" />
+		<priority value="fatal" />
 		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
 	</root>
 
 </log4j:configuration> 
