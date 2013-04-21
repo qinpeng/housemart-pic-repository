@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="ResidenceEntity">
+
+	<resultMap id="residence" class="org.housemart.pic.model.hm.ResidenceEntity">
+		<result property="residenceId" column="ID" />
+		<result property="regionId" column="regionId" />
+		<result property="regionName" column="regionName" />
+		<result property="plateName" column="plateName" />
+		<result property="residenceName" column="residenceName" />
+		<result property="address" column="Address" />
+	</resultMap>
+
+	<select id="findResidenceList" resultMap="residence">
+		SELECT rd.ID, rd.RegionID as regionId, rr.Name as regionName, r.Name as plateName, rd.Name as residenceName,
+		rd.Address
+		FROM residence AS rd
+		JOIN region AS r ON rd.RegionID = r.RegionID
+		JOIN region AS rr ON r.ParentID = rr.RegionID
+		WHERE rd.`status` = 1 
+		<dynamic>
+			<isNotNull prepend="AND" property="id"> 
+	            rd.RegionID = #id#  
+	        </isNotNull>  
+		</dynamic>
+	</select>
+		
+	<select id="loadResidence" resultMap="residence" parameterClass="uniqueObject">
+		SELECT rd.ID, rd.RegionID as regionId, rr.Name as regionName, r.Name as plateName, rd.Name as residenceName,
+		rd.Address
+		FROM residence AS rd
+		JOIN region AS r ON rd.RegionID = r.RegionID
+		JOIN region AS rr ON r.ParentID = rr.RegionID
+		WHERE rd.`status` = 1 and rd.ID = #id#
+	</select>	
+	 
+
+</sqlMap>
