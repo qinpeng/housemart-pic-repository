@@ -11,8 +11,8 @@ import org.housemart.pic.service.crawl.core.JsonCrawler;
 
 public class CommunityCrawler extends JsonCrawler implements _ICrawlable<CommunityGet> {
 
-	public CommunityCrawler(String configPath, String workDir) {
-		super(configPath, workDir);
+	public CommunityCrawler(String workDir) {
+		super(workDir);
 	}
 
 	@Override
@@ -24,6 +24,8 @@ public class CommunityCrawler extends JsonCrawler implements _ICrawlable<Communi
 		jsonResult = crawlReturnJson(url);
 
 		if (StringUtils.isNotBlank(jsonResult)) {
+			jsonResult = jsonResult.replaceAll("\r\n", "");
+			log.debug(jsonResult);
 			CommunityData data = om.readValue(jsonResult, CommunityData.class);
 			if (data != null)
 				community = data.getCommunity();

@@ -28,7 +28,7 @@
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="FILE" />
 	</logger>
-	
+
 	<logger name="org.housemart">
 		<priority value="debug" />
 		<appender-ref ref="CONSOLE" />
@@ -37,8 +37,6 @@
 
 	<root>
 		<priority value="fatal" />
-		<appender-ref ref="CONSOLE" />
-		<appender-ref ref="FILE" />
 	</root>
 
 </log4j:configuration> 

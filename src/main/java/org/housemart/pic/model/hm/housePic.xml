@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="HousePicEntity">
+	<resultMap id="housePic" class="org.housemart.pic.model.hm.HousePicEntity">
+		<result property="id" column="ID" />
+		<result property="residenceId" column="residenceID" />
+		<result property="houseId" column="HouseID" />
+		<result property="type" column="Type" />
+		<result property="url" column="URL" />
+		<result property="status" column="Status" />
+		<result property="addTime" column="AddTime" />
+		<result property="updateTime" column="UpdateTime" />
+	</resultMap>
+	
+	<insert id="addHousePic" parameterClass="org.housemart.pic.model.hm.HousePicEntity">
+		INSERT INTO house_pic(ResidenceID, HouseID, Type, URL, Status, AddTime, UpdateTime)
+		VALUES(#residenceId#, #houseId#, #type#, #url#, #status#, #addTime#, #updateTime#)
+		<selectKey resultClass="int" keyProperty="id">
+			SELECT @@IDENTITY AS id
+		</selectKey>
+	</insert>
+	
+	<select id="loadHousePic" resultMap="housePic" parameterClass="uniqueObject">
+		SELECT * FROM house_pic
+		WHERE ID = #id#
+	</select>
+	
+	<select id="findHousePicByHouseIdAndType" resultMap="housePic" parameterClass="map">
+		SELECT * FROM house_pic
+		WHERE HouseID = #houseId# AND Type = #type#
+		ORDER BY UpdateTime DESC
+	</select>
+
+	<select id="findResidencePicById" resultMap="housePic" parameterClass="map">
+		SELECT * FROM house_pic
+		WHERE residenceID = #residenceId# AND Type = 1
+		ORDER BY UpdateTime DESC
+	</select>	
+	
+	<update id="updateHousePic" parameterClass="org.housemart.pic.model.hm.HousePicEntity">
+		UPDATE house_pic SET ResidenceID = #residenceId#, HouseID = #houseId#, Type = #type#, URL = #url#, 
+		Status = #status#, AddTime = #addTime#, UpdateTime = #updateTime#
+		WHERE ID = #id#
+	</update>
+
+	<update id="updateCloudURL" parameterClass="map">
+		UPDATE house_pic SET CloudURL = #cloudURL#
+		WHERE ID = #id#
+	</update>	
+	
+</sqlMap>
+		

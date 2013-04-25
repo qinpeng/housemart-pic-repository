@@ -16,7 +16,7 @@
 		destroy-method="close">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/basedata?characterEncoding=utf-8" />
+			value="jdbc:mysql://localhost:3306/repository?characterEncoding=utf-8" />
 		<property name="username" value="root" />
 		<property name="password" value="${housemart.mysql.password}" />
 	</bean>
@@ -42,4 +42,17 @@
 		</constructor-arg>
 	</bean>
 
+	<bean id="houseDao" class="org.housemart.pic.dao.GenericDaoImp">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+		<constructor-arg>
+			<value>org.housemart.pic.model.hm.HouseEntity</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="housePicDao" class="org.housemart.pic.dao.GenericDaoImp">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+		<constructor-arg>
+			<value>org.housemart.pic.model.hm.HousePicEntity</value>
+		</constructor-arg>
+	</bean>
 </beans>

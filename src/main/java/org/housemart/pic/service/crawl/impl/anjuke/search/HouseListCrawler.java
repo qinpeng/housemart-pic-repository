@@ -10,8 +10,8 @@ import org.housemart.pic.service.crawl.core.JsonCrawler;
 
 public class HouseListCrawler extends JsonCrawler implements _ICrawlable<Properties> {
 
-	public HouseListCrawler(String configPath, String workDir) {
-		super(configPath, workDir);
+	public HouseListCrawler(String workDir) {
+		super(workDir);
 	}
 
 	@Override
@@ -22,6 +22,8 @@ public class HouseListCrawler extends JsonCrawler implements _ICrawlable<Propert
 		jsonResult = crawlReturnJson(url);
 
 		if (StringUtils.isNotBlank(jsonResult)) {
+			jsonResult = jsonResult.replaceAll("\r\n", "");
+			log.debug(jsonResult);
 			properties = om.readValue(jsonResult, Properties.class);
 		}
 

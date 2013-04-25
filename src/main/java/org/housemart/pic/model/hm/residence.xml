@@ -14,9 +14,9 @@
 	<select id="findResidenceList" resultMap="residence">
 		SELECT rd.ID, rd.RegionID as regionId, rr.Name as regionName, r.Name as plateName, rd.Name as residenceName,
 		rd.Address
-		FROM residence AS rd
-		JOIN region AS r ON rd.RegionID = r.RegionID
-		JOIN region AS rr ON r.ParentID = rr.RegionID
+		FROM basedata.residence AS rd
+		JOIN basedata.region AS r ON rd.RegionID = r.RegionID
+		JOIN basedata.region AS rr ON r.ParentID = rr.RegionID
 		WHERE rd.`status` = 1 
 		<dynamic>
 			<isNotNull prepend="AND" property="id"> 
@@ -28,9 +28,9 @@
 	<select id="loadResidence" resultMap="residence" parameterClass="uniqueObject">
 		SELECT rd.ID, rd.RegionID as regionId, rr.Name as regionName, r.Name as plateName, rd.Name as residenceName,
 		rd.Address
-		FROM residence AS rd
-		JOIN region AS r ON rd.RegionID = r.RegionID
-		JOIN region AS rr ON r.ParentID = rr.RegionID
+		FROM basedata.residence AS rd
+		JOIN basedata.region AS r ON rd.RegionID = r.RegionID
+		JOIN basedata.region AS rr ON r.ParentID = rr.RegionID
 		WHERE rd.`status` = 1 and rd.ID = #id#
 	</select>	
 	 

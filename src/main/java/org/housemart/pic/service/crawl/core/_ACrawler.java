@@ -11,7 +11,7 @@ import org.webharvest.definition.ScraperConfiguration;
 import org.webharvest.runtime.Scraper;
 import org.xml.sax.InputSource;
 
-public abstract class Crawler {
+public abstract class _ACrawler {
 
 	protected final Log log = LogFactory.getLog(this.getClass());
 	protected ScraperConfiguration config;
@@ -19,8 +19,8 @@ public abstract class Crawler {
 	protected Scraper scraper;
 	protected ObjectMapper om;
 
-	public Crawler(String configPath, String workDir) {
-		this.config = new ScraperConfiguration(new InputSource(Crawler.class.getClassLoader().getResourceAsStream(
+	public _ACrawler(String configPath, String workDir) {
+		this.config = new ScraperConfiguration(new InputSource(_ACrawler.class.getClassLoader().getResourceAsStream(
 				configPath)));
 		this.workDir = workDir;
 		this.scraper = new HouseMartScraper(config, workDir);

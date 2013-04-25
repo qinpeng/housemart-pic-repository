@@ -11,10 +11,10 @@ import org.apache.commons.lang.StringEscapeUtils;
 import org.springframework.util.CollectionUtils;
 import org.webharvest.runtime.variables.ListVariable;
 
-public class JsonCrawler extends Crawler {
+public class JsonCrawler extends _ACrawler {
 
-	public JsonCrawler(String configPath, String workDir) {
-		super(configPath, workDir);
+	public JsonCrawler(String workDir) {
+		super("org/housemart/pic/service/crawl/core/JsonData.xml", workDir);
 	}
 
 	public String crawlReturnJson(String url) throws Exception {

@@ -14,13 +14,11 @@
 
 
 	<bean id="communityCrawler" class="org.housemart.pic.service.crawl.impl.anjuke.search.CommunityCrawler">
-		<constructor-arg value="org/housemart/pic/service/crawl/core/JsonData.xml"/> 
-		<constructor-arg value="c:/data"/>
+		<constructor-arg value="c:/data/hm/pic"/>
 	</bean>
 	
 	<bean id="houseListCrawler" class="org.housemart.pic.service.crawl.impl.anjuke.search.HouseListCrawler">
-		<constructor-arg value="org/housemart/pic/service/crawl/core/JsonData.xml"/> 
-		<constructor-arg value="c:/data"/>
+		<constructor-arg value="c:/data/hm/pic"/>
 	</bean>
 	
 	<bean id="communitySearcher" class="org.housemart.pic.service.crawl.impl.anjuke.search.CommunitySearcher">
@@ -28,5 +26,10 @@
 	
 	<bean id="houseListSearcher" class="org.housemart.pic.service.crawl.impl.anjuke.search.HouseListSearcher">
 	</bean>
+	
+	<bean id="picCrawler" class="org.housemart.pic.service.crawl.impl.anjuke.store.file.PicCrawler">
+		<constructor-arg value="c:/data/hm/pic"/>
+	</bean>
+	
 	
 </beans>  

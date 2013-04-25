@@ -24,4 +24,10 @@
 
 	<bean id="residenceService" class="org.housemart.pic.service.ResidenceService">
 	</bean>
+	
+	<bean id="houseService" class="org.housemart.pic.service.HouseService">
+	</bean>
+	
+	<bean id="housePicService" class="org.housemart.pic.service.HousePicService">
+	</bean>
 </beans>  

@@ -23,7 +23,8 @@ public class HouseMartScraper extends Scraper {
 		boolean exception = true;
 		while (cd > 0 && exception) {
 			try {
-				log.debug("第 " + (t + 1 - cd) + " 次抓取");
+				if (cd != t)
+					log.debug("第 " + (t + 1 - cd) + " 次抓取");
 				cd--;
 				super.execute();
 				exception = false;

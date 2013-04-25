@@ -6,5 +6,6 @@
 	<typeAlias alias="uniqueObject" type="org.housemart.pic.dao.UniqueIdObject" />
 
 	<sqlMap resource="org/housemart/pic/model/hm/residence.xml" />
-
+	<sqlMap resource="org/housemart/pic/model/hm/house.xml" />
+	<sqlMap resource="org/housemart/pic/model/hm/housePic.xml" />
 </sqlMapConfig>
