@@ -12,10 +12,10 @@ public class BinaryCrawler extends _ACrawler {
 
 	public void crawl(String url, String filePath) throws Exception {
 
-		scraper.getContext().put("url", url);
-		scraper.getContext().put("filePath", workDir + "/" + filePath);
-		scraper.setDebug(true);
-		scraper.execute();
+		getScraper().getContext().put("url", url);
+		getScraper().getContext().put("filePath", workDir + "/" + filePath);
+		getScraper().setDebug(true);
+		getScraper().execute();
 
 	}
 }

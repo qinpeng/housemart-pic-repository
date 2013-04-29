@@ -12,14 +12,20 @@ import org.housemart.pic.dao.GenericDao;
 import org.housemart.pic.model.hm.ResidenceEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
+@SuppressWarnings({"rawtypes", "unchecked"})
 public class ResidenceService {
 	@Autowired
 	GenericDao<ResidenceEntity> residenceDao;
 
-	@SuppressWarnings({"rawtypes", "unchecked"})
-	public List<ResidenceEntity> selectResidence(Integer id) {
+	public List<ResidenceEntity> selectResidence(Integer regionId) {
 		Map param = new HashMap();
-		param.put("id", id);
+		param.put("id", regionId);
 		return residenceDao.select("findResidenceList", param);
+	}
+
+	public List<ResidenceEntity> selectResidenceByAdminRegion(Integer regionId) {
+		Map param = new HashMap();
+		param.put("id", regionId);
+		return residenceDao.select("findResidenceListByAdminRegion", param);
 	}
 }

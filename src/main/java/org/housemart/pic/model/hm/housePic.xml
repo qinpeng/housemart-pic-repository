@@ -8,13 +8,14 @@
 		<result property="type" column="Type" />
 		<result property="url" column="URL" />
 		<result property="status" column="Status" />
+		<result property="crawlStatus" column="CrawlStatus" />
 		<result property="addTime" column="AddTime" />
 		<result property="updateTime" column="UpdateTime" />
 	</resultMap>
 	
 	<insert id="addHousePic" parameterClass="org.housemart.pic.model.hm.HousePicEntity">
-		INSERT INTO house_pic(ResidenceID, HouseID, Type, URL, Status, AddTime, UpdateTime)
-		VALUES(#residenceId#, #houseId#, #type#, #url#, #status#, #addTime#, #updateTime#)
+		INSERT INTO house_pic(ResidenceID, HouseID, Type, URL, Status, CrawlStatus, AddTime, UpdateTime)
+		VALUES(#residenceId#, #houseId#, #type#, #url#, #status#, #crawlStatus#, #addTime#, #updateTime#)
 		<selectKey resultClass="int" keyProperty="id">
 			SELECT @@IDENTITY AS id
 		</selectKey>
@@ -39,7 +40,7 @@
 	
 	<update id="updateHousePic" parameterClass="org.housemart.pic.model.hm.HousePicEntity">
 		UPDATE house_pic SET ResidenceID = #residenceId#, HouseID = #houseId#, Type = #type#, URL = #url#, 
-		Status = #status#, AddTime = #addTime#, UpdateTime = #updateTime#
+		Status = #status#, CrawlStatus = #crawlStatus#, AddTime = #addTime#, UpdateTime = #updateTime#
 		WHERE ID = #id#
 	</update>
 

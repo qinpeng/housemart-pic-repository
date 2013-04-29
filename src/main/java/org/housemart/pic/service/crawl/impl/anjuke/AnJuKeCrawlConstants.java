@@ -4,7 +4,7 @@
  */
 package org.housemart.pic.service.crawl.impl.anjuke;
 
-public interface AnJuKeConstants {
+public interface AnJuKeCrawlConstants {
 
 	static final int CITY_SHANGHAI = 11;
 	static final int PAGE_SIZE = 15;

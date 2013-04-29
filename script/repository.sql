@@ -34,6 +34,7 @@ CREATE TABLE `repository`.`house`(
   `URL` varchar(512) DEFAULT NULL,
   `CloudURL` varchar(512) DEFAULT NULL,
   `Status` int(11) DEFAULT NULL,
+  `CrawlStatus` int(11) DEFAULT NULL,  
   `AddTime` datetime DEFAULT NULL,
   `UpdateTime` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)

@@ -17,11 +17,27 @@ public class HousePicEntity {
 	private Integer type;
 	private String url;
 	private Integer status;
+	private Integer crawlStatus;
 	private Date addTime;
 	private Date updateTime;
+	
+
 	public enum Type {
 		Residence(1), RoomType(2), HousePic(3);
 		Type(int value) {
+			this.value = value;
+		}
+		private int value;
+		public void setValue(int value) {
+			this.value = value;
+		}
+		public int getValue() {
+			return value;
+		}
+	}
+	public enum CrawlStatus {
+		Success(1), Error(2);
+		CrawlStatus(int value) {
 			this.value = value;
 		}
 		private int value;
@@ -79,6 +95,12 @@ public class HousePicEntity {
 	}
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
+	}
+	public Integer getCrawlStatus() {
+		return crawlStatus;
+	}
+	public void setCrawlStatus(Integer crawlStatus) {
+		this.crawlStatus = crawlStatus;
 	}
 
 }

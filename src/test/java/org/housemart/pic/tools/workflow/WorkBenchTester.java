@@ -1,5 +1,5 @@
 /**
- * Created on 2013-4-21
+393 * Created on 2013-4-21
  * 
  */
 package org.housemart.pic.tools.workflow;
@@ -18,6 +18,6 @@ public class WorkBenchTester {
 
 	@Test
 	public void testWorkBench() {
-		workBench.run();
+		workBench.runByRegionId(389);
 	}
 }

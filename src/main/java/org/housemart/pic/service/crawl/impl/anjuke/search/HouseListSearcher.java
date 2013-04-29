@@ -13,7 +13,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.housemart.pic.model.anjuke.Properties;
 import org.housemart.pic.model.anjuke.Property;
-import org.housemart.pic.service.crawl.impl.anjuke.AnJuKeConstants;
+import org.housemart.pic.service.crawl.impl.anjuke.AnJuKeCrawlConstants;
 import org.housemart.pic.service.crawl.impl.anjuke.crack.DecryptSig;
 import org.housemart.pic.utils.RequestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +44,7 @@ public class HouseListSearcher implements _IListSearcherable<Properties, Propert
 
 		List<Property> result = null;
 
-		String firstPage = generateURL(city, name, AnJuKeConstants.PAGE_SIZE, 1);
+		String firstPage = generateURL(city, name, AnJuKeCrawlConstants.PAGE_SIZE, 1);
 		Properties firstPageResult = houseListCrawler.crawl(firstPage);
 		int total = Integer.valueOf(firstPageResult.getTotal());
 		log.info("AnJuKeHouseList::total " + total + " pages");
@@ -53,11 +53,11 @@ public class HouseListSearcher implements _IListSearcherable<Properties, Propert
 			result = new ArrayList<Property>();
 			result.addAll(firstPageResult.getProperties());
 
-			if (total > AnJuKeConstants.PAGE_SIZE) {
-				int pages = total / AnJuKeConstants.PAGE_SIZE + 1;
+			if (total > AnJuKeCrawlConstants.PAGE_SIZE) {
+				int pages = total / AnJuKeCrawlConstants.PAGE_SIZE + 1;
 				for (int i = 2; i <= pages; i++) {
 					try {
-						String url = generateURL(city, name, AnJuKeConstants.PAGE_SIZE, i);
+						String url = generateURL(city, name, AnJuKeCrawlConstants.PAGE_SIZE, i);
 						log.info("AnJuKeHouseList::url - " + url);
 						Properties pageResult = houseListCrawler.crawl(url);
 						result.addAll(pageResult.getProperties());
@@ -75,7 +75,7 @@ public class HouseListSearcher implements _IListSearcherable<Properties, Propert
 	public String generateURL(int city, String name, int pageSize, int page) throws Exception {
 
 		String ret = null;
-		String url = MessageFormat.format(AnJuKeConstants.SEARCH_URL_PATTERN_HOUSE, String.valueOf(city), name,
+		String url = MessageFormat.format(AnJuKeCrawlConstants.SEARCH_URL_PATTERN_HOUSE, String.valueOf(city), name,
 				String.valueOf(pageSize), String.valueOf(page));
 		Map<String, String> param = RequestUtils.URLRequest(url);
 		Map<String, String> significativeParam = DecryptSig.obtainSignificativeParam(param);

@@ -26,4 +26,9 @@ public abstract class _ACrawler {
 		this.scraper = new HouseMartScraper(config, workDir);
 		this.om = new ObjectMapper();
 	}
+
+	public Scraper getScraper() {
+		return scraper;
+	}
+
 }

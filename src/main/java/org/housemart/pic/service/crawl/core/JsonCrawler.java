@@ -22,10 +22,10 @@ public class JsonCrawler extends _ACrawler {
 		String jsonResult = null;
 
 		List<ListVariable> jsonData = new ArrayList<ListVariable>();
-		scraper.getContext().put("url", url);
-		scraper.getContext().put("jsonData", jsonData);
-		scraper.setDebug(true);
-		scraper.execute();
+		getScraper().getContext().put("url", url);
+		getScraper().getContext().put("jsonData", jsonData);
+		getScraper().setDebug(true);
+		getScraper().execute();
 
 		if (!CollectionUtils.isEmpty(jsonData)) {
 			jsonResult = StringEscapeUtils.unescapeJava(jsonData.get(0).toString().trim());
