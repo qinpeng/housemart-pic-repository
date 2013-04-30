@@ -16,8 +16,12 @@ public class WorkBenchTester {
 	@Autowired
 	WorkBench workBench;
 
-	@Test
-	public void testWorkBench() {
+	public void crawlByRegion() {
 		workBench.runByRegionId(389);
+	}
+
+	@Test
+	public void crawlByAdminRegion() {
+		workBench.runByAdminRegionId(359);
 	}
 }

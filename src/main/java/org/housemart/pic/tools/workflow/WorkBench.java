@@ -61,7 +61,8 @@ public class WorkBench {
 	private void run(List<ResidenceEntity> residencesToCrawl) {
 
 		for (ResidenceEntity residence : residencesToCrawl) {
-			String pathPrefix = residence.getRegionName() + "/" + residence.getResidenceName();
+			String pathPrefix = residence.getRegionName() + "/" + residence.getPlateName() + "/"
+					+ residence.getResidenceName();
 
 			try {
 

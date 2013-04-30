@@ -34,7 +34,7 @@
 		WHERE rd.`status` = 1 
 		<dynamic>
 			<isNotNull prepend="AND" property="id"> 
-	            rd.RegionID in (SELECT RegionID FROM basedata.region WHERE ParentID == #id#) ORDER BY rd.RegionID 
+	            rd.RegionID in (SELECT RegionID FROM basedata.region WHERE ParentID = #id#) ORDER BY rd.RegionID 
 	        </isNotNull>  
 		</dynamic>
 	</select>

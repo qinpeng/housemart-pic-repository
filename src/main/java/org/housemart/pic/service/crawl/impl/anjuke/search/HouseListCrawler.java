@@ -22,7 +22,7 @@ public class HouseListCrawler extends JsonCrawler implements _ICrawlable<Propert
 		jsonResult = crawlReturnJson(url);
 
 		if (StringUtils.isNotBlank(jsonResult)) {
-			jsonResult = jsonResult.replaceAll("\r\n", "");
+			jsonResult = jsonResult.replaceAll("\r\n", "").replaceAll("\r", "").replaceAll("\n", "");
 			log.debug(jsonResult);
 			properties = om.readValue(jsonResult, Properties.class);
 		}

@@ -8,10 +8,9 @@
 			<param name="ConversionPattern" value="%d - %c -%-4r [%t] %-5p %x - %m%n" />
 		</layout>
 
-		<!--限制输出级别 -->
 		<filter class="org.apache.log4j.varia.LevelRangeFilter">
 			<param name="LevelMax" value="ERROR" />
-			<param name="LevelMin" value="TRACE" />
+			<param name="LevelMin" value="INFO" />
 		</filter>
 	</appender>
 
@@ -30,7 +29,7 @@
 	</logger>
 
 	<logger name="org.housemart">
-		<priority value="debug" />
+		<priority value="info" />
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="FILE" />
 	</logger>
