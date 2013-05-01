@@ -61,6 +61,15 @@ public class WorkBench {
 	private void run(List<ResidenceEntity> residencesToCrawl) {
 
 		for (ResidenceEntity residence : residencesToCrawl) {
+
+			if (houseService.isResidenceCrawled(residence.getResidenceId())) {
+				log.info("AnJuKeResidence::" + residence.getPlateName() + "::" + residence.getResidenceName()
+						+ "-已抓取，忽略");
+				continue;
+			}
+
+			log.info("AnJuKeResidence::" + residence.getPlateName() + "::" + residence.getResidenceName() + "-即将抓取");
+
 			String pathPrefix = residence.getRegionName() + "/" + residence.getPlateName() + "/"
 					+ residence.getResidenceName();
 

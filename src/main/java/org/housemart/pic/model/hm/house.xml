@@ -44,6 +44,11 @@
 		WHERE ID = #id#
 	</select>
 	
+	<select id="findHouseByResicendeId" resultMap="house" parameterClass="map">
+		SELECT * FROM house
+		WHERE ResidenceID = #id#
+	</select>
+	
 	<update id="updateHouse" parameterClass="org.housemart.pic.model.hm.HouseEntity">
 		UPDATE house
 		<dynamic prepend="set" >
