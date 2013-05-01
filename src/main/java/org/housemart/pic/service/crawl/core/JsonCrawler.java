@@ -33,6 +33,5 @@ public class JsonCrawler extends _ACrawler {
 		}
 
 		return jsonResult;
-		
 	}
 }
