@@ -18,11 +18,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class ResidenceDaoTester {
 
 	@Autowired
-	GenericDao<ResidenceEntity> residencdDao;
+	GenericDao<ResidenceEntity> residenceDao;
 
 	@Test
 	public void findResidenceTest() {
-		List<ResidenceEntity> residences = residencdDao.select("findResidenceList", null);
+		List<ResidenceEntity> residences = residenceDao.select("findResidenceList", null);
 		System.out.println(residences.size());
 	}
 

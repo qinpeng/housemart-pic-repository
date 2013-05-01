@@ -28,7 +28,8 @@ public class JsonCrawler extends _ACrawler {
 		getScraper().execute();
 
 		if (!CollectionUtils.isEmpty(jsonData)) {
-			jsonResult = StringEscapeUtils.unescapeJava(jsonData.get(0).toString().trim());
+			String raw = jsonData.get(0).toString().trim().replaceAll("\\\"", "\\\\\"");
+			jsonResult = StringEscapeUtils.unescapeJava(raw);
 		}
 
 		return jsonResult;

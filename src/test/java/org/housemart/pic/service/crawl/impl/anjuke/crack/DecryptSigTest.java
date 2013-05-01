@@ -37,4 +37,14 @@ public class DecryptSigTest {
 		Assert.assertEquals(expSig, sig);
 	}
 
+	@Test
+	public void generateURL() throws Exception {
+		String paraExg = "http://api.anjuke.com/mobile/1.3/community.get?i=357853047832754&m=Android-GT-I9001&o=GT-I9001-user+2.3.3+GINGERBREAD+ZSKI1+release-keys&v=2.3.3&cv=3.2.1&app=a-anjuke&pm=b23&cid=11&api_key=eb8cd4ef60fde7580260cf9cf4250a24&maptype=baidu&id=291";
+		Map<String, String> param = RequestUtils.URLRequest(paraExg);
+		Map<String, String> significativeParam = DecryptSig.obtainSignificativeParam(param);
+		String sig = DecryptSig.generateSig(significativeParam);
+		paraExg = paraExg + "&sig=" + sig;
+		System.out.println(paraExg);
+	}
+
 }

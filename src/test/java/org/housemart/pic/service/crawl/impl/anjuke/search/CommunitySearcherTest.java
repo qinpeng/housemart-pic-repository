@@ -20,6 +20,6 @@ public class CommunitySearcherTest {
 
 	@Test
 	public void searchTest() throws Exception {
-		System.out.println(communitySearcher.searchJsonResult("2718"));
+		System.out.println(communitySearcher.searchJsonResult("291"));
 	}
 }
