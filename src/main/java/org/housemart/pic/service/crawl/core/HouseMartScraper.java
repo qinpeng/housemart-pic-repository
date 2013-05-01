@@ -17,7 +17,7 @@ import org.webharvest.runtime.Scraper;
 
 public class HouseMartScraper extends Scraper {
 	private Log log = LogFactory.getLog(this.getClass());
-	private int coolDownUnit = 10000;
+	private int coolDownUnit = 2000;
 
 	public HouseMartScraper(ScraperConfiguration configuration, String workingDir) {
 		super(configuration, workingDir);
@@ -60,7 +60,7 @@ public class HouseMartScraper extends Scraper {
 			final int t = 10;
 			int cd = t;
 			while (cd > 0 && status != 200) {
-				int coolDown = coolDownUnit * 3;
+				int coolDown = coolDownUnit;
 				Thread.sleep(coolDown);
 				log.debug("<探测中>第 " + (t + 1 - cd) + " 次尝试访问， 还剩下" + cd + "次尝试，频率是" + coolDown / 1000 + "秒间隔/次");
 
