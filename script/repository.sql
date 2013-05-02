@@ -39,3 +39,9 @@ CREATE TABLE `repository`.`house`(
   `UpdateTime` datetime DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `repository`.`house_pic` 
+ADD INDEX `ResidenceID` (`ResidenceID` ASC) 
+, ADD INDEX `HouseID` (`HouseID` ASC) 
+, ADD INDEX `Type` (`Type` ASC) ;
