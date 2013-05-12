@@ -42,5 +42,3 @@ CREATE TABLE `repository`.`house`(
   INDEX `HouseID` (`HouseID` ASC),
   INDEX `Type` (`Type` ASC)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
