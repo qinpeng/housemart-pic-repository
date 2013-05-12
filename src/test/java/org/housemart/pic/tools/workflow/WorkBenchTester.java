@@ -19,9 +19,9 @@ public class WorkBenchTester {
 	public void crawlByRegion() {
 		workBench.runByRegionId(389);
 	}
-
+	
 	@Test
 	public void crawlByAdminRegion() {
-		workBench.runByAdminRegionId(359);
+		workBench.runByAdminRegionId(360);
 	}
 }
