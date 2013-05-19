@@ -37,19 +37,8 @@ CREATE TABLE `repository`.`house`(
   `CrawlStatus` int(11) DEFAULT NULL,  
   `AddTime` datetime DEFAULT NULL,
   `UpdateTime` datetime DEFAULT NULL,
-<<<<<<< HEAD
   PRIMARY KEY (`ID`),
   INDEX `ResidenceID` (`ResidenceID` ASC),
   INDEX `HouseID` (`HouseID` ASC),
   INDEX `Type` (`Type` ASC)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-=======
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
-ALTER TABLE `repository`.`house_pic` 
-ADD INDEX `ResidenceID` (`ResidenceID` ASC) 
-, ADD INDEX `HouseID` (`HouseID` ASC) 
-, ADD INDEX `Type` (`Type` ASC) ;
->>>>>>> branch 'master' of https://github.com/qinpeng/housemart-pic-repository.git
