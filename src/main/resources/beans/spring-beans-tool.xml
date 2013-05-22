@@ -14,4 +14,8 @@
 
 	<bean id="workBench" class="org.housemart.pic.tools.workflow.WorkBench">
 	</bean>
+	
+	<bean id="uploader" class="org.housemart.pic.tools.upload.Uploader">
+	</bean>
+	
 </beans>  

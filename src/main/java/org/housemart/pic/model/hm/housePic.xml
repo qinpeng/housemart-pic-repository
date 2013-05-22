@@ -49,5 +49,15 @@
 		WHERE ID = #id#
 	</update>	
 	
+	<update id="updateHousePicStatus" parameterClass="map">
+		UPDATE house_pic SET Status = #status#, UpdateTime = #updateTime#
+		WHERE ID = #id#
+	</update>
+	
+	<select id="findPicNotUploadByResidence" resultMap="housePic" parameterClass="map">
+		SELECT * FROM house_pic
+		WHERE ResidenceID = #id# AND (Status IS NULL OR Status <![CDATA[ <> ]]> 1)
+	</select>	
+	
 </sqlMap>
 		
