@@ -4,9 +4,6 @@
  */
 package org.housemart.pic.tools.upload;
 
-import java.io.IOException;
-
-import org.apache.http.client.ClientProtocolException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +17,13 @@ public class UploaderTest {
   Uploader uploader;
   
   @Test
-  public void runByRegion() throws ClientProtocolException, IOException {
+  public void runByRegion() throws Exception {
     uploader.runByRegionId(380);
   }
+  
+  @Test
+  public void runByAdminRegion() throws Exception {
+    uploader.runByAdminRegionId(359);
+  }
+  
 }

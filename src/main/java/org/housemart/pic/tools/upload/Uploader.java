@@ -34,12 +34,28 @@ public class Uploader {
   public static final String REQUEST_COOKIE = "user=30_1369019984014";
   public static final String PIC_FOLDER = "e:/data/hm/pic";
   
+  private static final String ERROR_SERVER = "server error";
+  private static final String ERROR_FILE_NOT_FOUND = "file not found";
+  private static final String ERROR_HESSIAN = "hessian handle error";
+  private static final String ERROR_TOKEN = "token not right";
+  private String message;
+  
   @Autowired
   ResidenceService residenceService;
   @Autowired
   HouseService houseService;
   @Autowired
   HousePicService housePicService;
+  
+  public void runByAdminRegionId(int adminRegionId) throws Exception {
+    List<ResidenceEntity> residencesToCrawl = residenceService.selectResidenceByAdminRegion(adminRegionId);
+    run(residencesToCrawl);
+  }
+  
+  public void runByRegionId(int regionId) throws Exception {
+    List<ResidenceEntity> residencesToCrawl = residenceService.selectResidence(regionId);
+    run(residencesToCrawl);
+  }
   
   public boolean uploadImage(String picPath, String picId) throws ClientProtocolException, IOException {
     
@@ -62,7 +78,9 @@ public class Uploader {
     System.out.println(response);
     
     ResponseEntityBean responseBean = new ObjectMapper().readValue(response, ResponseEntityBean.class);
+    message = null;
     if (StringUtils.isNotBlank(responseBean.getMsg())) {
+      message = responseBean.getMsg();
       if (responseBean.getMsg().equalsIgnoreCase("success")) status = true;
     }
     
@@ -70,12 +88,7 @@ public class Uploader {
     
   }
   
-  public void runByRegionId(int regionId) throws ClientProtocolException, IOException {
-    List<ResidenceEntity> residencesToCrawl = residenceService.selectResidence(regionId);
-    run(residencesToCrawl);
-  }
-  
-  private void run(List<ResidenceEntity> residencesToUpload) throws ClientProtocolException, IOException {
+  private void run(List<ResidenceEntity> residencesToUpload) throws Exception {
     
     for (ResidenceEntity r : residencesToUpload) {
       List<HousePicEntity> pics = housePicService.findByResidenceId(r.getResidenceId());
@@ -87,6 +100,11 @@ public class Uploader {
             boolean uploaded = uploadImage(PIC_FOLDER + "/" + pic.getUrl(), pic.getId().toString());
             if (uploaded) {
               housePicService.updateHousePicAsUploaded(pic.getId());
+            } else {
+              if (message.equals(ERROR_HESSIAN)) Thread.sleep(60000 * 1);
+              if (message.equals(ERROR_SERVER)) Thread.sleep(60000 * 1);
+              if (message.equals(ERROR_TOKEN)) throw new Exception(ERROR_TOKEN);
+              if (message.equals(ERROR_FILE_NOT_FOUND)) throw new Exception(ERROR_FILE_NOT_FOUND);
             }
           }
         }
@@ -94,5 +112,4 @@ public class Uploader {
     }
     
   }
-  
 }
