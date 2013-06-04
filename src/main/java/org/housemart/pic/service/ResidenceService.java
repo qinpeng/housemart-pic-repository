@@ -8,11 +8,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.housemart.common.GenericCollections;
 import org.housemart.pic.dao.GenericDao;
 import org.housemart.pic.model.hm.ResidenceEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@SuppressWarnings({"rawtypes", "unchecked"})
+@SuppressWarnings({ "rawtypes", "unchecked" })
 public class ResidenceService {
 	@Autowired
 	GenericDao<ResidenceEntity> residenceDao;
@@ -28,4 +29,11 @@ public class ResidenceService {
 		param.put("id", regionId);
 		return residenceDao.select("findResidenceListByAdminRegion", param);
 	}
+
+	public List<ResidenceEntity> selectResidenceByIds(List<Integer> ids) {
+		Map param = new HashMap();
+		param.put("ids", GenericCollections.join(ids, ","));
+		return residenceDao.select("findResidenceListByIds", param);
+	}
+
 }

@@ -17,9 +17,10 @@ import org.webharvest.runtime.Scraper;
 
 public class HouseMartScraper extends Scraper {
 	private Log log = LogFactory.getLog(this.getClass());
-	private int coolDownUnit = 2000;
+	private int coolDownUnit = 1000;
 
-	public HouseMartScraper(ScraperConfiguration configuration, String workingDir) {
+	public HouseMartScraper(ScraperConfiguration configuration,
+			String workingDir) {
 		super(configuration, workingDir);
 	}
 
@@ -30,7 +31,7 @@ public class HouseMartScraper extends Scraper {
 		boolean exception = true;
 		while (cd > 0 && exception) {
 			try {
-				log.debug("第 " + (t + 1 - cd) + " 次抓取");
+				log.info("第 " + (t + 1 - cd) + " 次抓取");
 				cd--;
 				super.execute();
 				exception = false;
@@ -38,7 +39,8 @@ public class HouseMartScraper extends Scraper {
 				log.error("出错，错误信息 : " + e.getMessage());
 
 				if (e.getMessage() != null && (e instanceof HttpException)) {
-					String url = StringUtils.substringAfterLast(e.getMessage(), "URL:").trim();
+					String url = StringUtils.substringAfterLast(e.getMessage(),
+							"URL:").trim();
 					log.error("网络不够畅通，即将启动探测程序...");
 
 					if (cd > 0)
@@ -57,12 +59,13 @@ public class HouseMartScraper extends Scraper {
 			Connection hmConnection = null;
 			HttpURLConnection hm = null;
 
-			final int t = 10;
+			final int t = 5;
 			int cd = t;
 			while (cd > 0 && status != 200) {
 				int coolDown = coolDownUnit;
 				Thread.sleep(coolDown);
-				log.debug("<探测中>第 " + (t + 1 - cd) + " 次尝试访问， 还剩下" + cd + "次尝试，频率是" + coolDown / 1000 + "秒间隔/次");
+				log.info("<探测中>第 " + (t + 1 - cd) + " 次尝试访问， 还剩下" + cd
+						+ "次尝试，频率是" + coolDown / 1000 + "秒间隔/次");
 
 				try {
 					hmConnection = new GetConnection(url, null);
@@ -72,7 +75,7 @@ public class HouseMartScraper extends Scraper {
 				} catch (Exception e) {
 				}
 
-				log.debug("<探测中>返回代码" + status);
+				log.info("<探测中>返回代码" + status);
 
 				cd--;
 			}

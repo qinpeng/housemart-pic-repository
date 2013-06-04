@@ -48,6 +48,19 @@ public class HousePicEntity {
 			return value;
 		}
 	}
+	public enum Status{
+		Success(1), FileNotFound(2);
+		Status(int value) {
+			this.value = value;
+		}
+		private int value;
+		public void setValue(int value) {
+			this.value = value;
+		}
+		public int getValue() {
+			return value;
+		}
+	}
 	public Integer getId() {
 		return id;
 	}
