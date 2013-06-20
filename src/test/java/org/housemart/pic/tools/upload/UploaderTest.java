@@ -26,9 +26,10 @@ public class UploaderTest {
 
 	@Test
 	public void runByAdminRegion() throws Exception {
-		uploader.runByAdminRegionId(368);
-		uploader.runByAdminRegionId(369);
-		uploader.runByAdminRegionId(370);
+		uploader.runByAdminRegionId(374);
+		uploader.runByAdminRegionId(375);
+		uploader.runByAdminRegionId(376);
+		uploader.runByAdminRegionId(377);
 	}
 
 	@Test
