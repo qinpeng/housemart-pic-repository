@@ -1,4 +1,4 @@
-package org.housemart.pic.dao;
+package org.housemart.common.dao;
 
 import java.util.List;
 

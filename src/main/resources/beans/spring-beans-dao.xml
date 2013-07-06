@@ -35,21 +35,21 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<bean id="residenceDao" class="org.housemart.pic.dao.GenericDaoImp">
+	<bean id="residenceDao" class="org.housemart.common.dao.GenericDaoImp">
 		<property name="sqlMapClient" ref="sqlMapClient" />
 		<constructor-arg>
 			<value>org.housemart.pic.model.hm.ResidenceEntity</value>
 		</constructor-arg>
 	</bean>
 
-	<bean id="houseDao" class="org.housemart.pic.dao.GenericDaoImp">
+	<bean id="houseDao" class="org.housemart.common.dao.GenericDaoImp">
 		<property name="sqlMapClient" ref="sqlMapClient" />
 		<constructor-arg>
 			<value>org.housemart.pic.model.hm.HouseEntity</value>
 		</constructor-arg>
 	</bean>
 	
-	<bean id="housePicDao" class="org.housemart.pic.dao.GenericDaoImp">
+	<bean id="housePicDao" class="org.housemart.common.dao.GenericDaoImp">
 		<property name="sqlMapClient" ref="sqlMapClient" />
 		<constructor-arg>
 			<value>org.housemart.pic.model.hm.HousePicEntity</value>

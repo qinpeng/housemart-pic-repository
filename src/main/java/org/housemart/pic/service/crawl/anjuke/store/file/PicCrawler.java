@@ -2,9 +2,9 @@
  * Created on 2013-4-26
  * 
  */
-package org.housemart.pic.service.crawl.impl.anjuke.store.file;
+package org.housemart.pic.service.crawl.anjuke.store.file;
 
-import org.housemart.pic.service.crawl.core.BinaryCrawler;
+import org.housemart.common.crawl.BinaryCrawler;
 
 public class PicCrawler extends BinaryCrawler {
 

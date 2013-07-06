@@ -2,7 +2,7 @@
  * Created on 2013-4-5
  * 
  */
-package org.housemart.pic.service.crawl.impl.anjuke.search;
+package org.housemart.pic.service.crawl.anjuke.search;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -13,8 +13,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.housemart.pic.model.anjuke.Properties;
 import org.housemart.pic.model.anjuke.Property;
-import org.housemart.pic.service.crawl.impl.anjuke.AnJuKeCrawlConstants;
-import org.housemart.pic.service.crawl.impl.anjuke.crack.DecryptSig;
+import org.housemart.pic.service.crawl.anjuke.AnJuKeCrawlConstants;
+import org.housemart.pic.service.crawl.anjuke.crack.DecryptSig;
 import org.housemart.pic.utils.RequestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 

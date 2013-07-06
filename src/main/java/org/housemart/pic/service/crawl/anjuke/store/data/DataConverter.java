@@ -2,7 +2,7 @@
  * Created on 2013-4-25
  * 
  */
-package org.housemart.pic.service.crawl.impl.anjuke.store.data;
+package org.housemart.pic.service.crawl.anjuke.store.data;
 
 import java.util.Calendar;
 

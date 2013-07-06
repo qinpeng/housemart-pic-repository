@@ -2,11 +2,11 @@
  * Created on 2013-4-5
  * 
  */
-package org.housemart.pic.service.crawl.impl.anjuke.search;
+package org.housemart.pic.service.crawl.anjuke.search;
 
 import org.apache.commons.lang.StringUtils;
+import org.housemart.common.crawl.JsonCrawler;
 import org.housemart.pic.model.anjuke.Properties;
-import org.housemart.pic.service.crawl.core.JsonCrawler;
 
 public class HouseListCrawler extends JsonCrawler implements _ICrawlable<Properties> {
 

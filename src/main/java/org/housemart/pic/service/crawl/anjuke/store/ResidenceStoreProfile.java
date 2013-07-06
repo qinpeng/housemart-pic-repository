@@ -2,7 +2,7 @@
  * Created on 2013-4-19
  * 
  */
-package org.housemart.pic.service.crawl.impl.anjuke.store;
+package org.housemart.pic.service.crawl.anjuke.store;
 
 import java.text.MessageFormat;
 

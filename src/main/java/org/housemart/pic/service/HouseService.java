@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.housemart.pic.dao.GenericDao;
+import org.housemart.common.dao.GenericDao;
 import org.housemart.pic.model.hm.HouseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 
