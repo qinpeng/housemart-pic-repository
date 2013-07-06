@@ -6,6 +6,7 @@ package org.housemart.pic.dao;
 
 import java.util.List;
 
+import org.housemart.common.dao.GenericDao;
 import org.housemart.pic.model.hm.ResidenceEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;

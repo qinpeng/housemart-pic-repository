@@ -8,6 +8,7 @@ import java.util.Map;
 
 import junit.framework.Assert;
 
+import org.housemart.pic.service.crawl.anjuke.crack.DecryptSig;
 import org.housemart.pic.utils.RequestUtils;
 import org.junit.Test;
 

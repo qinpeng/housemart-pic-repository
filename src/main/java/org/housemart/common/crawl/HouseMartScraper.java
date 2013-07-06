@@ -2,7 +2,7 @@
  * Created on 2013-4-5
  * 
  */
-package org.housemart.pic.service.crawl.core;
+package org.housemart.common.crawl;
 
 import java.net.HttpURLConnection;
 

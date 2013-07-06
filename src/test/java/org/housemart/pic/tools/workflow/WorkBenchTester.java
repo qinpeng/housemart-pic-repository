@@ -11,22 +11,23 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath*:/beans/spring*.xml" })
+@ContextConfiguration(locations = {"classpath*:/beans/spring*.xml"})
 public class WorkBenchTester {
-	@Autowired
-	WorkBench workBench;
-
-	public void crawlByRegion() {
-		workBench.runByRegionId(389);
-	}
-
-	@Test
-	public void crawlByAdminRegion() {
-		workBench.runByAdminRegionId(372);
-		workBench.runByAdminRegionId(373);
-		workBench.runByAdminRegionId(374);
-		workBench.runByAdminRegionId(375);
-		workBench.runByAdminRegionId(376);
-		workBench.runByAdminRegionId(377);
-	}
+  @Autowired
+  WorkBench workBench;
+  
+  @Test
+  public void crawlByRegion() {
+    workBench.runByRegionId(389);
+  }
+  
+  @Test
+  public void crawlByAdminRegion() {
+    workBench.runByAdminRegionId(372);
+    workBench.runByAdminRegionId(373);
+    workBench.runByAdminRegionId(374);
+    workBench.runByAdminRegionId(375);
+    workBench.runByAdminRegionId(376);
+    workBench.runByAdminRegionId(377);
+  }
 }

@@ -8,7 +8,8 @@ import java.util.List;
 
 import org.housemart.pic.model.anjuke.Properties;
 import org.housemart.pic.model.anjuke.Property;
-import org.housemart.pic.service.crawl.impl.anjuke.AnJuKeCrawlConstants;
+import org.housemart.pic.service.crawl.anjuke.AnJuKeCrawlConstants;
+import org.housemart.pic.service.crawl.anjuke.search._IListSearcherable;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

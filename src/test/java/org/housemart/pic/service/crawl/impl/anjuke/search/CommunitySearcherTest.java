@@ -5,6 +5,7 @@
 package org.housemart.pic.service.crawl.impl.anjuke.search;
 
 import org.housemart.pic.model.anjuke.CommunityGet;
+import org.housemart.pic.service.crawl.anjuke.search._IEntitySearchable;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

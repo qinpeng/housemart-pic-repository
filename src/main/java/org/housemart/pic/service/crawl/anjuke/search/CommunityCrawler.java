@@ -2,12 +2,12 @@
  * Created on 2013-4-20
  * 
  */
-package org.housemart.pic.service.crawl.impl.anjuke.search;
+package org.housemart.pic.service.crawl.anjuke.search;
 
 import org.apache.commons.lang.StringUtils;
+import org.housemart.common.crawl.JsonCrawler;
 import org.housemart.pic.model.anjuke.CommunityData;
 import org.housemart.pic.model.anjuke.CommunityGet;
-import org.housemart.pic.service.crawl.core.JsonCrawler;
 
 public class CommunityCrawler extends JsonCrawler implements _ICrawlable<CommunityGet> {
 

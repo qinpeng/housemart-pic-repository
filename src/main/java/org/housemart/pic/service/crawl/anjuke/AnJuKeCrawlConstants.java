@@ -2,7 +2,7 @@
  * Created on 2013-4-19
  * 
  */
-package org.housemart.pic.service.crawl.impl.anjuke;
+package org.housemart.pic.service.crawl.anjuke;
 
 public interface AnJuKeCrawlConstants {
 
