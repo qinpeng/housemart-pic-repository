@@ -24,10 +24,15 @@
 
 	<bean id="residenceService" class="org.housemart.pic.service.ResidenceService">
 	</bean>
-	
+
 	<bean id="houseService" class="org.housemart.pic.service.HouseService">
 	</bean>
-	
+
 	<bean id="housePicService" class="org.housemart.pic.service.HousePicService">
 	</bean>
+
+	<bean id="brokerService" class="org.housemart.broker.service.store.soufun.BrokerService">
+	</bean>
+	
+	<bean id="brokerHome" class="org.housemart.broker.service.crawl.soufun.BrokerHome"></bean>
 </beans>  

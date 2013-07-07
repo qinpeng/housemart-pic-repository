@@ -2,7 +2,7 @@
  * Created on 2013-3-29
  * 
  */
-package org.housemart.pic.service.crawl.impl.anjuke.crack;
+package org.housemart.pic.service.crawl.anjuke.crack;
 
 import java.util.Map;
 

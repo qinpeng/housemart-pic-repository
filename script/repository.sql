@@ -42,3 +42,29 @@ CREATE TABLE `repository`.`house`(
   INDEX `HouseID` (`HouseID` ASC),
   INDEX `Type` (`Type` ASC)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE  TABLE `repository`.`broker` (
+  `ID` INT NOT NULL AUTO_INCREMENT ,
+  `HomePage` VARCHAR(512) NULL ,
+  `Name` VARCHAR(45) NULL ,
+  `Labels` VARCHAR(45) NULL ,
+  `Phone` VARCHAR(128) NULL ,
+  `Company` VARCHAR(45) NULL ,
+  `ServiceBlock` VARCHAR(512) NULL ,
+  `ShopName` VARCHAR(45) NULL ,
+  `ShopAddress` VARCHAR(512) NULL ,
+  `ShopPhone` VARCHAR(45) NULL ,
+  `ShopMainArea` VARCHAR(45) NULL ,
+  `HouseCount` INT NULL ,
+  `Residences` TEXT NULL ,
+  `SearchRegion` VARCHAR(45) NULL ,
+  `SearchPlate` VARCHAR(45) NULL ,
+  `SearchCompany` VARCHAR(45) NULL ,
+  `AddTime` DATETIME NULL ,
+  `UpdateTime` DATETIME NULL ,
+  PRIMARY KEY (`ID`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+

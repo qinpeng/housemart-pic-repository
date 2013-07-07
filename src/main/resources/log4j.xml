@@ -29,7 +29,7 @@
 	</logger>
 
 	<logger name="org.housemart">
-		<priority value="info" />
+		<level value="debug" />
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="FILE" />
 	</logger>

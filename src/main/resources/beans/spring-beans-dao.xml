@@ -55,4 +55,11 @@
 			<value>org.housemart.pic.model.hm.HousePicEntity</value>
 		</constructor-arg>
 	</bean>
+	
+	<bean id="brokerDao" class="org.housemart.common.dao.GenericDaoImp">
+		<property name="sqlMapClient" ref="sqlMapClient" />
+		<constructor-arg>
+			<value>org.housemart.broker.model.Broker</value>
+		</constructor-arg>
+	</bean>
 </beans>

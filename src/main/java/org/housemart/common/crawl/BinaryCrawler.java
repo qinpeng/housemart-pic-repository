@@ -7,7 +7,7 @@ package org.housemart.common.crawl;
 public class BinaryCrawler extends _ACrawler {
 
 	public BinaryCrawler(String workDir) {
-		super("org/housemart/pic/service/crawl/core/BinaryData.xml", workDir);
+		super("org/housemart/common/crawl/BinaryData.xml", workDir);
 	}
 
 	public void crawl(String url, String filePath) throws Exception {

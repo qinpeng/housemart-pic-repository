@@ -8,4 +8,6 @@
 	<sqlMap resource="org/housemart/pic/model/hm/residence.xml" />
 	<sqlMap resource="org/housemart/pic/model/hm/house.xml" />
 	<sqlMap resource="org/housemart/pic/model/hm/housePic.xml" />
+	
+	<sqlMap resource="org/housemart/broker/model/broker.xml" />
 </sqlMapConfig>

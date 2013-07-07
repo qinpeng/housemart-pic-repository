@@ -2,7 +2,7 @@
  * Created on 2013-4-20
  * 
  */
-package org.housemart.pic.service.crawl.impl.anjuke.search;
+package org.housemart.pic.service.crawl.anjuke.search;
 
 import org.housemart.pic.model.anjuke.CommunityGet;
 import org.housemart.pic.service.crawl.anjuke.search._IEntitySearchable;
