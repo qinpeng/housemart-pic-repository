@@ -39,7 +39,7 @@ public class BrokerList extends _ACrawler {
     
     scraper.getContext().put("url", url);
     scraper.getContext().put("homepages", homepages);
-//    scraper.getHttpClientManager().setHttpProxy("localhost", 8087);
+    // scraper.getHttpClientManager().setHttpProxy("localhost", 8087);
     
     scraper.execute();
     
@@ -53,6 +53,7 @@ public class BrokerList extends _ACrawler {
           String homepage = "http://esf.sh.soufun.com" + hp.toString().trim();
           
           if (brokerService.exit(homepage)) {
+            log.info("igonre " + homepage);
             continue;
           }
           
