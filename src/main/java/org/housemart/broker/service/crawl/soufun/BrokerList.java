@@ -15,23 +15,21 @@ import org.housemart.broker.model.Broker;
 import org.housemart.broker.service.store.soufun.BrokerService;
 import org.housemart.common.crawl.HouseMartScraper;
 import org.housemart.common.crawl._ACrawler;
-import org.housemart.framework.web.context.SpringContextHolder;
 import org.webharvest.runtime.Scraper;
 import org.webharvest.runtime.variables.NodeVariable;
 
 public class BrokerList extends _ACrawler {
   
-  private BrokerService brokerService = SpringContextHolder.getBean("brokerService");
-  
   public BrokerList() {
     super("org/housemart/broker/service/crawl/soufun/BrokerList.xml", null);
   }
   
-  public List<Broker> crawl(String url, Map<String,String> param) throws Exception {
-    return crawl(url, param, true);
+  public List<Broker> crawl(String url, Map<String,String> param, BrokerService brokerService) throws Exception {
+    return crawl(url, param, brokerService, true);
   }
   
-  public List<Broker> crawl(String url, Map<String,String> param, boolean crawlDetail) throws Exception {
+  public List<Broker> crawl(String url, Map<String,String> param, BrokerService brokerService, boolean crawlDetail)
+      throws Exception {
     
     Scraper scraper = new HouseMartScraper(config, null);
     
