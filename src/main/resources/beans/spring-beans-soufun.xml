@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+
+	<bean name="companyCategory" class="org.housemart.broker.model.Category">
+		<property name="id" value="company" />
+		<property name="name" value="经纪公司" />
+		<property name="options">
+			<list>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c5%d6%d0%d4%ad%b5%d8%b2%fa" />
+					<property name="name" value="中原地产" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c521%ca%c0%bc%cd%b2%bb%b6%af%b2%fa" />
+					<property name="name" value="21世纪不动产" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c5%ba%ba%d3%ee%b5%d8%b2%fa" />
+					<property name="name" value="汉宇地产" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c5%b5%c2%d3%d3%b5%d8%b2%fa" />
+					<property name="name" value="德佑地产" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c5%d6%be%d4%b6%b5%d8%b2%fa" />
+					<property name="name" value="志远地产" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c5%d0%c5%d2%e5%b7%bf%ce%dd" />
+					<property name="name" value="信义房屋" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c5%ce%d2%b0%ae%ce%d2%bc%d2" />
+					<property name="name" value="我爱我家" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c5%b1%a6%d4%ad%b5%d8%b2%fa" />
+					<property name="name" value="宝原地产" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c5%cc%ab%c6%bd%d1%f3%b7%bf%ce%dd" />
+					<property name="name" value="太平洋房屋" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c5%d3%c0%c7%ec%b7%bf%ce%dd" />
+					<property name="name" value="永庆房屋" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c5%d7%a1%c9%cc%b2%bb%b6%af%b2%fa" />
+					<property name="name" value="住商不动产" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="c5%be%c5%bc%e4%b0%e9%b2%bb%b6%af%b2%fa" />
+					<property name="name" value="九间伴不动产" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean name="regionCategory" class="org.housemart.broker.model.Category">
+		<property name="id" value="region" />
+		<property name="name" value="区域" />
+		<property name="options">
+			<list>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a030" />
+					<property name="name" value="宝山" />
+					<property name="options">
+						<list>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b010256" />
+								<property name="name" value="大场镇" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b03937" />
+								<property name="name" value="大华" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b03940" />
+								<property name="name" value="高境" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b012993" />
+								<property name="name" value="共富" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b03943" />
+								<property name="name" value="共康" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b03941" />
+								<property name="name" value="顾村" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b03945" />
+								<property name="name" value="罗店" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b03948" />
+								<property name="name" value="罗泾" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b03938" />
+								<property name="name" value="上大" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b03947" />
+								<property name="name" value="淞宝" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b03939" />
+								<property name="name" value="淞南" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b012994" />
+								<property name="name" value="通河" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b010649" />
+								<property name="name" value="杨行" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b03946" />
+								<property name="name" value="月浦" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b03942" />
+								<property name="name" value="张庙" />
+							</bean>
+						</list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a020" />
+					<property name="name" value="长宁" />
+					<property name="options">
+						<list>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b02075" />
+								<property name="name" value="北新泾" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b01617" />
+								<property name="name" value="古北" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b01619" />
+								<property name="name" value="虹桥" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b01621" />
+								<property name="name" value="天山" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b05251" />
+								<property name="name" value="西郊" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b013642" />
+								<property name="name" value="仙霞" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b01620" />
+								<property name="name" value="新华路" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b05701" />
+								<property name="name" value="镇宁路" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b01618" />
+								<property name="name" value="中山公园" />
+							</bean>
+						</list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a0996" />
+					<property name="name" value="崇明" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a032" />
+					<property name="name" value="奉贤" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a023" />
+					<property name="name" value="虹口" />
+					<property name="options">
+						<list>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b0121" />
+								<property name="name" value="北外滩" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b05257" />
+								<property name="name" value="江湾镇" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b05256" />
+								<property name="name" value="凉城" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b02974" />
+								<property name="name" value="临平路" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b01629" />
+								<property name="name" value="鲁迅公园" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b01627" />
+								<property name="name" value="曲阳" />
+							</bean>
+							<bean class="org.housemart.broker.model.Option">
+								<property name="id" value="b01628" />
+								<property name="name" value="四川北路" />
+							</bean>
+						</list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a024" />
+					<property name="name" value="黄浦" />
+					<property name="options">
+						<list>
+						</list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a029" />
+					<property name="name" value="嘉定" />
+					<property name="options">
+						<list>
+						</list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a035" />
+					<property name="name" value="金山" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a021" />
+					<property name="name" value="静安" />
+					<property name="options">
+						<list>
+						</list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a022" />
+					<property name="name" value="卢湾" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a018" />
+					<property name="name" value="闵行" />
+					<property name="options">
+						<list>
+						</list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a025" />
+					<property name="name" value="浦东" />
+					<property name="options">
+						<list>
+						</list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a028" />
+					<property name="name" value="普陀" />
+					<property name="options">
+						<list></list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a031" />
+					<property name="name" value="青浦" />
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a0586" />
+					<property name="name" value="松江" />
+					<property name="options">
+						<list></list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a019" />
+					<property name="name" value="徐汇" />
+					<property name="options">
+						<list></list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a026" />
+					<property name="name" value="杨浦" />
+					<property name="options">
+						<list></list>
+					</property>
+				</bean>
+				<bean class="org.housemart.broker.model.Option">
+					<property name="id" value="a027" />
+					<property name="name" value="闸北" />
+					<property name="options">
+						<list></list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+
+</beans>  

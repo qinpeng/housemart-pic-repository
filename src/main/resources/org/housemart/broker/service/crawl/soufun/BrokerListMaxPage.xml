@@ -1,0 +1,34 @@
+<config charset="utf-8">
+	<script>
+	    http.client.params.soTimeout = 10000;
+	    http.client.params.connectionManagerTimeout = 10000;
+	    http.client.httpConnectionManager.params.connectionTimeout = 10000;
+	</script>
+	
+	
+	<var-def name="pageUrl">
+		<html-to-xml>
+			<http url="${url}" charset="GBK" method="post">
+			</http>
+		</html-to-xml>
+	</var-def>
+
+	<var-def name="maxpageVar">
+		<xpath expression="//*[@id='searchnav']/dl/dd[3]/p/strong/text()">
+			<var name="pageUrl" />
+		</xpath>
+	</var-def>
+
+	<loop item="item" index="i">
+		<list>
+			<var name="maxpageVar" />
+		</list>
+
+		<body>
+			<template>
+				${maxpage.add(item)};
+			</template>
+		</body>
+	</loop>
+
+</config>

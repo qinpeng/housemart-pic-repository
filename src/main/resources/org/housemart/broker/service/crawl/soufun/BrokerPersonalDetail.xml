@@ -1,0 +1,97 @@
+<config charset="utf-8">
+	<script>
+	    http.client.params.soTimeout = 10000;
+	    http.client.params.connectionManagerTimeout = 10000;
+	    http.client.httpConnectionManager.params.connectionTimeout = 10000;
+	</script>
+
+	<var-def name="pageUrl">
+		<html-to-xml>
+			<http url="${url}" charset="GBK" method="post">
+			</http>
+		</html-to-xml>
+	</var-def>
+
+	<var-def name="nameVar">
+		<xpath expression="/html/body/div[4]/div[1]/div/ul/li[1]/span/text()">
+			<var name="pageUrl" />
+		</xpath>
+	</var-def>
+	<loop item="item" index="i">
+		<list>
+			<var name="nameVar" />
+		</list>
+		<body>
+			<template>
+				${name.add(item)};
+			</template>
+		</body>
+	</loop>
+	
+	<var-def name="labelsVar">
+		<xpath expression="/html/body/div[4]/div[1]/div/ul/li[5]/div[2]/a[2]/@title">
+			<var name="pageUrl" />
+		</xpath>
+	</var-def>
+	<loop item="item" index="i">
+		<list>
+			<var name="labelsVar" />
+		</list>
+		<body>
+			<template>
+				${labels.add(item)};
+			</template>
+		</body>
+	</loop>	
+
+	<var-def name="phoneVar">
+		<xpath expression="/html/body/div[4]/div[1]/div/ul/li[7]/text()">
+			<var name="pageUrl" />
+		</xpath>
+	</var-def>
+	<loop item="item" index="i">
+		<list>
+			<var name="phoneVar" />
+		</list>
+		<body>
+			<template>
+				${phone.add(item)};
+			</template>
+		</body>
+	</loop>	
+
+	
+	<var-def name="serviceBlockVar">
+		<xpath expression="/html/body/div[4]/div[1]/div/ul/li[6]/text()">
+			<var name="pageUrl" />
+		</xpath>
+	</var-def>
+	<loop item="item" index="i">
+		<list>
+			<var name="serviceBlockVar" />
+		</list>
+		<body>
+			<template>
+				${serviceBlock.add(item)};
+			</template>
+		</body>
+	</loop>	
+	
+	<var-def name="residencesVar">
+		<xpath expression="//*[@id='esfsec']/p/a/text()">
+			<var name="pageUrl" />
+		</xpath>
+	</var-def>
+	<loop item="item" index="i">
+		<list>
+			<var name="residencesVar" />
+		</list>
+		<body>
+			<template>
+				${residences.add(item)};
+			</template>
+		</body>
+	</loop>
+	
+
+</config>

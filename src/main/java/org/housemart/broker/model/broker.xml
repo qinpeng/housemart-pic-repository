@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Broker">
+
+	<resultMap id="broker" class="org.housemart.broker.model.Broker">
+		<result property="id" column="ID" />
+		<result property="homePage" column="HomePage" />
+		<result property="name" column="Name" />
+		<result property="labels" column="Labels" />
+		<result property="phone" column="Phone" />
+		<result property="company" column="Company" />
+		<result property="serviceBlock" column="ServiceBlock" />
+		<result property="shopName" column="ShopName" />
+		<result property="shopAddress" column="ShopAddress" />
+		<result property="shopPhone" column="ShopPhone" />
+		<result property="shopMainArea" column="ShopMainArea" />
+		<result property="houseCount" column="HouseCount" />
+		<result property="residences" column="Residences" />
+		<result property="searchRegion" column="SearchRegion" />
+		<result property="searchPlate" column="SearchPlate" />
+		<result property="searchCompany" column="SearchCompany" />
+		<result property="addTime" column="AddTime" />
+		<result property="updateTime" column="UpdateTime" />
+	</resultMap>
+	
+	<insert id="addBroker" parameterClass="org.housemart.broker.model.Broker">
+		INSERT INTO broker(ID,HomePage,Name,Labels,Phone,Company,ServiceBlock,ShopName,ShopAddress,ShopPhone,
+			ShopMainArea,HouseCount,Residences,SearchRegion,SearchPlate,SearchCompany,AddTime,UpdateTime)
+		VALUES(#id#,#homePage#,#name#,#labels#,#phone#,#company#,#serviceBlock#,#shopName#,#shopAddress#,
+			#shopPhone#,#shopMainArea#,#houseCount#,#residences#,#searchRegion#,#searchPlate#,#searchCompany#,#addTime#,#updateTime#)
+		<selectKey resultClass="int" keyProperty="id">
+			SELECT @@IDENTITY AS ID
+		</selectKey>
+	</insert>
+	
+	<select id="loadByHomePage" resultMap="broker" parameterClass="map">
+		SELECT * FROM broker
+		WHERE HomePage = #homePage#
+	</select>
+	
+</sqlMap>
+		
