@@ -28,7 +28,7 @@ public class BrokerListMaxPage extends _ACrawler {
     scraper.getContext().put("url", url);
     scraper.getContext().put("maxpage", maxpage);
     
-    scraper.getHttpClientManager().setHttpProxy("localhost", 8087);
+//    scraper.getHttpClientManager().setHttpProxy("localhost", 8087);
     scraper.execute();
     
     int max = 0;

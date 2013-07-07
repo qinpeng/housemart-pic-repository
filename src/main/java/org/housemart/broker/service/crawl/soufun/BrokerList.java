@@ -12,12 +12,16 @@ import java.util.Map;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.housemart.broker.model.Broker;
+import org.housemart.broker.service.store.soufun.BrokerService;
 import org.housemart.common.crawl.HouseMartScraper;
 import org.housemart.common.crawl._ACrawler;
+import org.housemart.framework.web.context.SpringContextHolder;
 import org.webharvest.runtime.Scraper;
 import org.webharvest.runtime.variables.NodeVariable;
 
 public class BrokerList extends _ACrawler {
+  
+  private BrokerService brokerService = SpringContextHolder.getBean("brokerService");
   
   public BrokerList() {
     super("org/housemart/broker/service/crawl/soufun/BrokerList.xml", null);
@@ -35,7 +39,7 @@ public class BrokerList extends _ACrawler {
     
     scraper.getContext().put("url", url);
     scraper.getContext().put("homepages", homepages);
-    scraper.getHttpClientManager().setHttpProxy("localhost", 8087);
+//    scraper.getHttpClientManager().setHttpProxy("localhost", 8087);
     
     scraper.execute();
     
@@ -47,6 +51,10 @@ public class BrokerList extends _ACrawler {
         if (StringUtils.isNotBlank(hp.toString().trim())) {
           
           String homepage = "http://esf.sh.soufun.com" + hp.toString().trim();
+          
+          if (brokerService.exit(homepage)) {
+            continue;
+          }
           
           Broker brk = new Broker();
           

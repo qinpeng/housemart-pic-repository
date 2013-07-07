@@ -1,8 +1,8 @@
 <config charset="utf-8">
 	<script>
-	    http.client.params.soTimeout = 10000;
-	    http.client.params.connectionManagerTimeout = 10000;
-	    http.client.httpConnectionManager.params.connectionTimeout = 10000;
+	    http.client.params.soTimeout = 20000;
+	    http.client.params.connectionManagerTimeout = 20000;
+	    http.client.httpConnectionManager.params.connectionTimeout = 20000;
 	</script>
 	
 	

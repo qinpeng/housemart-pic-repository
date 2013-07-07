@@ -40,7 +40,7 @@ public class BrokerPersonalDetail extends _ACrawler {
     scraper.getContext().put("serviceBlock", serviceBlock);
     scraper.getContext().put("residences", residences);
     
-    scraper.getHttpClientManager().setHttpProxy("localhost", 8087);
+//    scraper.getHttpClientManager().setHttpProxy("localhost", 8087);
     scraper.execute();
     
     Broker brk = new Broker();
