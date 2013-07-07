@@ -65,6 +65,9 @@ public class BrokerHome {
               brokerService.add(brks);
               
               log.info(GenericCollections.join(brks, "\r\n"));
+              
+              Thread.sleep(5000);
+              
             } catch (Exception e) {
               log.error(e.getMessage(), e);
             }
