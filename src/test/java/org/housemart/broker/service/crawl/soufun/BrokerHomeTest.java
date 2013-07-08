@@ -18,6 +18,8 @@ public class BrokerHomeTest {
   
   @Test
   public void crawlByRegion() throws Exception {
-    brokerHome.crawl("a019");
+    brokerHome.crawl("a025");
+    brokerHome.crawl("a020");
+    brokerHome.crawl("a021");
   }
 }

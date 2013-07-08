@@ -53,11 +53,12 @@ public class SoufunUtils {
         params.put(_ISoufunConstants.URL_PARAMS_PAGE, "1");
         
         String url = generateCrawlURL(params);
+        
         int maxPage = maxPageOfList(url);
         if (isLessThanMaxLimit(maxPage)) {
           // crawl by plate
-          
-          urls.put(url, params);
+          Map<String,String> finalParms = new HashMap<String,String>(params);
+          urls.put(url, finalParms);
         } else {
           
           // crawl by company
@@ -67,8 +68,10 @@ public class SoufunUtils {
           for (Option company : companyCategory.getOptions()) {
             params.put(_ISoufunConstants.SEARCH_OPTION_COMPANY, company.getName());
             params.put(_ISoufunConstants.URL_PARAMS_COMPANY, company.getId());
-            url = generateCrawlURL(params);
-            urls.put(url, params);
+            
+            Map<String,String> finalParms = new HashMap<String,String>(params);
+            url = generateCrawlURL(finalParms);
+            urls.put(url, finalParms);
           }
           
         }

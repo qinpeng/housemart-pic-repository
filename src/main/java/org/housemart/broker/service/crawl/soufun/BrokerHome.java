@@ -61,6 +61,8 @@ public class BrokerHome {
               Map<String,String> finalParams = url.getValue();
               String finalURL = SoufunUtils.generateCrawlURL(url.getValue());
               
+              log.info(finalURL);
+              
               List<Broker> brks = list.crawl(finalURL, finalParams, brokerService);
               brokerService.add(brks);
               
