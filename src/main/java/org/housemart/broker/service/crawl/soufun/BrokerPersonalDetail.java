@@ -26,6 +26,7 @@ public class BrokerPersonalDetail extends _ACrawler {
     Scraper scraper = new HouseMartScraper(config, null);
     
     List<NodeVariable> name = new ArrayList<NodeVariable>();
+    List<NodeVariable> score = new ArrayList<NodeVariable>();
     List<NodeVariable> labels = new ArrayList<NodeVariable>();
     List<NodeVariable> phone = new ArrayList<NodeVariable>();
     List<NodeVariable> company = new ArrayList<NodeVariable>();
@@ -34,18 +35,27 @@ public class BrokerPersonalDetail extends _ACrawler {
     
     scraper.getContext().put("url", url);
     scraper.getContext().put("name", name);
+    scraper.getContext().put("score", score);
     scraper.getContext().put("labels", labels);
     scraper.getContext().put("phone", phone);
     scraper.getContext().put("company", company);
     scraper.getContext().put("serviceBlock", serviceBlock);
     scraper.getContext().put("residences", residences);
     
-//    scraper.getHttpClientManager().setHttpProxy("localhost", 8087);
+    // scraper.getHttpClientManager().setHttpProxy("localhost", 8087);
     scraper.execute();
     
     Broker brk = new Broker();
     brk.setHomePage(url);
     brk.setName(name.size() >= 1 ? name.get(0).toString().trim() : null);
+    
+    if (score.size() >= 1) {
+      String scoreString = StringUtils.substringAfter(score.get(0).toString(), ":").trim();
+      if (StringUtils.isNotBlank(scoreString)) {
+        brk.setScore(Integer.valueOf(scoreString));
+      }
+    }
+    
     brk.setLabels(labels.size() >= 1 ? GenericCollections.join(labels, ",").trim() : null);
     brk.setPhone(phone.size() >= 1 ? StringUtils.substringAfter(phone.get(0).toString(), "：").trim() : null);
     brk.setCompany(company.size() >= 1 ? StringUtils.substringAfter(

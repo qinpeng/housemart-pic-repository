@@ -6,6 +6,7 @@
 		<result property="id" column="ID" />
 		<result property="homePage" column="HomePage" />
 		<result property="name" column="Name" />
+		<result property="score" column="Score" />
 		<result property="labels" column="Labels" />
 		<result property="phone" column="Phone" />
 		<result property="company" column="Company" />
@@ -24,9 +25,9 @@
 	</resultMap>
 	
 	<insert id="addBroker" parameterClass="org.housemart.broker.model.Broker">
-		INSERT INTO broker(ID,HomePage,Name,Labels,Phone,Company,ServiceBlock,ShopName,ShopAddress,ShopPhone,
+		INSERT INTO broker(ID,HomePage,Name,Score,Labels,Phone,Company,ServiceBlock,ShopName,ShopAddress,ShopPhone,
 			ShopMainArea,HouseCount,Residences,SearchRegion,SearchPlate,SearchCompany,AddTime,UpdateTime)
-		VALUES(#id#,#homePage#,#name#,#labels#,#phone#,#company#,#serviceBlock#,#shopName#,#shopAddress#,
+		VALUES(#id#,#homePage#,#name#,#score#,#labels#,#phone#,#company#,#serviceBlock#,#shopName#,#shopAddress#,
 			#shopPhone#,#shopMainArea#,#houseCount#,#residences#,#searchRegion#,#searchPlate#,#searchCompany#,#addTime#,#updateTime#)
 		<selectKey resultClass="int" keyProperty="id">
 			SELECT @@IDENTITY AS ID

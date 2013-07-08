@@ -28,6 +28,22 @@
 		</body>
 	</loop>
 	
+	<var-def name="scoreVar">
+		<xpath expression="/html/body/div[4]/div[1]/div/ul/li[5]/div[2]/a[1]/label/@title">
+			<var name="pageUrl" />
+		</xpath>
+	</var-def>
+	<loop item="item" index="i">
+		<list>
+			<var name="scoreVar" />
+		</list>
+		<body>
+			<template>
+				${score.add(item)};
+			</template>
+		</body>
+	</loop>
+	
 	<var-def name="labelsVar">
 		<xpath expression="/html/body/div[4]/div[1]/div/ul/li[5]/div[2]/a[2]/@title">
 			<var name="pageUrl" />

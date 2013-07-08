@@ -24,12 +24,12 @@ public class Broker extends BaseEntity {
   private String shopMainArea;
   
   private int houseCount = 0;
+  private int score = 0;
   private String residences;
   
   private String searchRegion;
   private String searchPlate;
   private String searchCompany;
-  
   
   private Date addTime;
   private Date updateTime;
@@ -146,6 +146,14 @@ public class Broker extends BaseEntity {
     this.houseCount = houseCount;
   }
   
+  public int getScore() {
+    return score;
+  }
+  
+  public void setScore(int score) {
+    this.score = score;
+  }
+  
   public String getResidences() {
     return residences;
   }
@@ -161,22 +169,21 @@ public class Broker extends BaseEntity {
   public void setId(int id) {
     this.id = id;
   }
-
+  
   public Date getAddTime() {
     return addTime;
   }
-
+  
   public void setAddTime(Date addTime) {
     this.addTime = addTime;
   }
-
+  
   public Date getUpdateTime() {
     return updateTime;
   }
-
+  
   public void setUpdateTime(Date updateTime) {
     this.updateTime = updateTime;
   }
-
   
 }
