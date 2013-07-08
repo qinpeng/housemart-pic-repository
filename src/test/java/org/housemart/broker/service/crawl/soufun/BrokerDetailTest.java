@@ -18,6 +18,7 @@ public class BrokerDetailTest {
     // 个人经纪人
     System.out.println(pDetail.crawl("http://esf.sh.soufun.com/a/xinming58"));
     System.out.println(pDetail.crawl("http://esf.sh.soufun.com/a/lilailong123"));
+    System.out.println(pDetail.crawl("http://esf.sh.soufun.com/a/xk690576244"));
     
   }
 }

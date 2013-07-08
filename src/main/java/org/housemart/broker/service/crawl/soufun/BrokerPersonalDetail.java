@@ -45,7 +45,7 @@ public class BrokerPersonalDetail extends _ACrawler {
     
     Broker brk = new Broker();
     brk.setHomePage(url);
-    brk.setName(name.size() >= 1 ? StringUtils.substringAfter(name.get(0).toString(), "：").trim() : null);
+    brk.setName(name.size() >= 1 ? name.get(0).toString().trim() : null);
     brk.setLabels(labels.size() >= 1 ? GenericCollections.join(labels, ",").trim() : null);
     brk.setPhone(phone.size() >= 1 ? StringUtils.substringAfter(phone.get(0).toString(), "：").trim() : null);
     brk.setCompany(company.size() >= 1 ? StringUtils.substringAfter(
